@@ -1,7 +1,7 @@
 # Bài tập lớn: Lý thuyết mật mã — Nhóm 5
 
 ## Đề tài
-Tìm hiểu, cài đặt và kiểm thử thuật toán mã dòng **Trivium** (thuộc danh sách eSTREAM).
+Tìm hiểu, cài đặt và kiểm thử thuật toán mã dòng **Trivium**.
 
 ## Giới thiệu
 Trivium là một thuật toán mã dòng đồng bộ, được thiết kế bởi Christophe De Cannière và Bart Preneel, là một trong các ứng viên profile phần cứng (hardware-oriented) của dự án eSTREAM. Thuật toán sử dụng khóa (key) 80 bit và vector khởi tạo (IV) 80 bit, sinh keystream từ 3 thanh ghi dịch hồi tiếp phi tuyến (NFSR) kết hợp với nhau.
