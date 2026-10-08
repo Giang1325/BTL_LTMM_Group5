@@ -12,7 +12,7 @@ Trivium là một thuật toán mã dòng đồng bộ, được thiết kế b�
 - Chạy kiểm thử với các test vector chuẩn để xác minh tính đúng đắn.
 
 ## Thành viên nhóm
-- Họ tên 1 — MSSV
+- Hoàng Gia Bảo — 20233276
 - Nguyễn Trường Giang — 20233375
 - Đồng Vũ Ngọc Anh — 20233243
 - Phan Anh Hào — 20233386
