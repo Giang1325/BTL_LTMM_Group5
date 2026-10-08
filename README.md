@@ -14,7 +14,7 @@ Trivium là một thuật toán mã dòng đồng bộ, được thiết kế b�
 ## Thành viên nhóm
 - Họ tên 1 — MSSV
 - Nguyễn Trường Giang — 20233375
-- Họ tên 3 — MSSV
+- Đồng Vũ Ngọc Anh — 20233243
 - Phan Anh Hào — 20233386
 
 ## Cấu trúc thư mục
