@@ -22,4 +22,4 @@ Trivium là một thuật toán mã dòng đồng bộ, được thiết kế b�
 - `/tests`: test vector và unit test
 - `/docs`: báo cáo, tài liệu
 ## Tài liệu tham khảo
-- Trang dự án eSTREAM: https://www.ecrypt.eu.org/stream/
+- Trang dự án eSTREAM: [https://www.ecrypt.eu.org/stream/](https://en.wikipedia.org/wiki/ESTREAM)
