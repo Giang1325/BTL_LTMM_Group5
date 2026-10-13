@@ -21,3 +21,5 @@ Trivium là một thuật toán mã dòng đồng bộ, được thiết kế b�
 - `/src`: mã nguồn cài đặt thuật toán
 - `/tests`: test vector và unit test
 - `/docs`: báo cáo, tài liệu
+## Tài liệu tham khảo
+- Trang dự án eSTREAM: https://www.ecrypt.eu.org/stream/
