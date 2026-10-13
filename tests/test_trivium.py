@@ -4,7 +4,7 @@ import os
 # Khai báo đường dẫn để thư mục tests có thể nhìn thấy thư mục src
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-# Gọi class Trivium từ file anhngoc.py của bạn sang đây
+
 from anhngoc import Trivium
 
 print("BẮT ĐẦU CHẠY THỬ TRIVIUM")
