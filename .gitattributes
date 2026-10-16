@@ -1,0 +1,7 @@
+# Git tu chuan hoa ky tu xuong dong cho file van ban
+* text=auto
+
+# File chay tren Linux/WSL bat buoc xuong dong kieu LF
+Makefile text eol=lf
+*.c      text eol=lf
+*.h      text eol=lf

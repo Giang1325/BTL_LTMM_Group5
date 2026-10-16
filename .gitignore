@@ -26,3 +26,11 @@
 # File hệ điều hành
 .DS_Store
 Thumbs.db
+
+# File chay tren Linux/WSL (khong co duoi .exe)
+/trivium
+/test_vectors
+
+# File rac cua Python
+__pycache__/
+*.pyc
