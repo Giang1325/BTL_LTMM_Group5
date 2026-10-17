@@ -76,18 +76,22 @@ Mỗi commit nên là một thay đổi có ý nghĩa; đừng gộp nhiều vi�
 - **Tiêu đề:** viết như commit message.
 - **Mô tả:** làm gì, đã kiểm tra thế nào (đã chạy `make test` chưa, kết quả ra sao), còn gì chưa xong.
 - **Nhỏ và sớm:** mỗi Pull Request một việc. Mở sớm để người khác thấy tiến độ.
-- **Duyệt:** chỉ merge khi có ít nhất 1 người **không phải tác giả** đã duyệt.
+- **Duyệt:** chỉ merge khi có ít nhất 1 người **không phải tác giả** đã duyệt. Khi mở Pull Request, chọn người duyệt theo cột **Người review** ở mục 6.
 
 ## 6. Chủ sở hữu module
 
-Mỗi file có một người chịu trách nhiệm chính. Khi có xung đột (conflict) trong file của ai, người đó quyết định giữ phần nào.
+Mỗi file có một người chịu trách nhiệm chính và một người review (cũng là người dự phòng khi chủ module vắng). Khi có xung đột (conflict) trong file của ai, người đó quyết định giữ phần nào.
 
-| File / thư mục                                                   | Chủ sở hữu |
-|------------------------------------------------------------------|------------|
-| `Makefile`, `CONTRIBUTING.md`, `tools/bench.c`, `docs/` (ghép)  | Giang      |
-| `src/trivium.h`, `src/trivium.c`, `src/trivium64.c`              | Hào        |
-| `tests/vectors/`, `tests/*.c`                                    | Bảo        |
-| `src/hex.h`, `src/hex.c`, `src/main.c`, `tools/avalanche.c`      | Ngọc Anh   |
+| File / thư mục                                               | Chủ sở hữu   | Người review |
+|--------------------------------------------------------------|--------------|--------------|
+| `Makefile`, `CONTRIBUTING.md`                                | Giang        | Ngọc Anh     |
+| `src/trivium.h`                                              | Giang, Bảo   | Hào          |
+| `src/trivium.c`                                              | Giang        | Bảo, Hào     |
+| `src/trivium64.c`                                            | Bảo          | Giang, Hào   |
+| `tools/bench.c`                                              | Bảo          | Ngọc Anh     |
+| `tests/vectors/`, `tests/*.c`                                | Hào          | Giang        |
+| `src/hex.h`, `src/hex.c`, `src/main.c`, `tools/avalanche.c`  | Ngọc Anh     | Bảo          |
+| `docs/`                                                      | Mỗi người viết mục của mình; Ngọc Anh ghép, Giang chốt cấu trúc | — |
 
 ## 7. Viết code
 
