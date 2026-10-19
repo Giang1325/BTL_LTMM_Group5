@@ -1,0 +1,34 @@
+BỘ TEST VECTOR TRIVIUM 
+--------------------------------------------------
+
+1. Test Vector 1 (All Zeros)
+- Khóa (Key - 80 bit): 00000000000000000000
+- IV (80 bit)        : 00000000000000000000
+- Keystream (16 byte): FBE0BF265859051B517A2E4E239FC97F
+- Nguồn: Thư viện mật mã nguồn mở avr-crypto-lib trên GitHub
+- Link nguồn: https://raw.githubusercontent.com/cantora/avr-crypto-lib/master/testvectors/trivium-80.80.test-vectors
+- Ghi chú: Set 2, vector 0 trong file gốc
+
+2. Test Vector 2 (Key MSB = 1)
+- Khóa (Key - 80 bit): 80000000000000000000
+- IV (80 bit)        : 00000000000000000000
+- Keystream (16 byte): 38EB86FF730D7A9CAF8DF13A4420540D
+- Nguồn: Thư viện mật mã nguồn mở avr-crypto-lib trên GitHub
+- Link nguồn: https://raw.githubusercontent.com/cantora/avr-crypto-lib/master/testvectors/trivium-80.80.test-vectors
+- Ghi chú: Set 1, vector 0 trong file gốc
+
+3. Test Vector 3 (IV MSB = 1)
+- Khóa (Key - 80 bit): 00000000000000000000
+- IV (80 bit)        : 80000000000000000000
+- Keystream (16 byte): F8901736640549E3BA7D42EA2D07B9F4
+- Nguồn: Thư viện mật mã nguồn mở avr-crypto-lib trên GitHub
+- Link nguồn: https://raw.githubusercontent.com/cantora/avr-crypto-lib/master/testvectors/trivium-80.80.test-vectors
+- Ghi chú: Set 5, vector 0 trong file gốc
+
+4. Test Vector 4 (Dữ liệu ngẫu nhiên)
+- Khóa (Key - 80 bit): 0F62B5085BAE0154A7FA
+- IV (80 bit)        : 288FF65DC42B92F960C7
+- Keystream (16 byte): A4386C6D7624983FEA8DBE7314E5FE1F
+- Nguồn: Thư viện mật mã nguồn mở avr-crypto-lib trên GitHub
+- Link nguồn: https://raw.githubusercontent.com/cantora/avr-crypto-lib/master/testvectors/trivium-80.80.test-vectors
+- Ghi chú: Set 6, vector 3 trong file gốc
