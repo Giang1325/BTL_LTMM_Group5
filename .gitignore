@@ -1,4 +1,4 @@
-# File biên dịch / object files
+# File biên dịch
 *.o
 *.obj
 *.exe
@@ -18,7 +18,7 @@
 *.ilk
 *.exp
 
-# File của IDE/editor khác (nếu ai dùng)
+# File của IDE/editor khác
 .vscode/
 *.vcxproj.user
 .vs/
@@ -27,9 +27,12 @@
 .DS_Store
 Thumbs.db
 
-# File chay tren Linux/WSL (khong co duoi .exe)
+# File chay tren Linux/WSL
 /trivium
 /test_vectors
+/trace
+/avalanche
+/iv_reuse
 
 # File rac cua Python
 __pycache__/
