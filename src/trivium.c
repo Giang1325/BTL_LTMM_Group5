@@ -15,9 +15,14 @@ void trivium_init_rounds(trivium_ctx *ctx, const uint8_t key[TRIVIUM_KEY_BYTES],
     memset(ctx->s, 0, sizeof(ctx->s));
 
     for (i = 0; i < 80; i++) {
-        ctx->s[i]      = (key[i / 8] >> (i % 8)) & 1;
-        ctx->s[93 + i] = (iv[i / 8] >> (i % 8)) & 1;
+        ctx->s[i]      = (key[9 - i / 8] >> (7 - i % 8)) & 1;
+        ctx->s[93 + i] = (iv[9 - i / 8] >> (7 - i % 8)) & 1;
     }
+
+    /*s286=s287=s288=1*/
+    ctx->s[285] = 1;
+    ctx->s[286] = 1;
+    ctx->s[287] = 1;
 
     for (i = 0; i < rounds; i++)
         trivium_step(ctx);
@@ -28,7 +33,7 @@ int trivium_step(trivium_ctx *ctx)
     uint8_t *s = ctx->s;
     uint8_t t1, t2, t3, z;
 
-    t1 = s[66] ^ s[93];         /*t1=s66+s93 */
+    t1 = s[65] ^ s[92];         /*t1=s66+s93 */
     t2 = s[161] ^ s[176];       /*t2=s162+s177*/
     t3 = s[242] ^ s[287];       /*t3=s243+s288*/
     z = t1 ^ t2 ^ t3;
