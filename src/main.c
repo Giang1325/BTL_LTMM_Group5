@@ -60,6 +60,12 @@ static int cmd_enc(const char *key_hex, const char *in_path, const char *out_pat
     uint8_t key[KEY_SIZE];
     uint8_t iv[IV_SIZE];
 
+    /* Kiem tra file dau vao va dau ra co trung ten khong */
+    if (strcmp(in_path, out_path) == 0) {
+        fprintf(stderr, "Loi: File dau ra khong duoc trung ten voi file dau vao.\n");
+        return 1;
+    }
+
     if (hex_to_bytes(key_hex, key, KEY_SIZE) != 0) {
         fprintf(stderr, "Loi: Khoa hex khong hop le (can dung 20 ky tu hex = 10 byte).\n");
         return 1;
@@ -125,6 +131,12 @@ static int cmd_enc(const char *key_hex, const char *in_path, const char *out_pat
 static int cmd_dec(const char *key_hex, const char *in_path, const char *out_path) {
     uint8_t key[KEY_SIZE];
     uint8_t iv[IV_SIZE];
+
+    /* Kiem tra file dau vao va dau ra co trung ten khong */
+    if (strcmp(in_path, out_path) == 0) {
+        fprintf(stderr, "Loi: File dau ra khong duoc trung ten voi file dau vao.\n");
+        return 1;
+    }
 
     if (hex_to_bytes(key_hex, key, KEY_SIZE) != 0) {
         fprintf(stderr, "Loi: Khoa hex khong hop le (can dung 20 ky tu hex = 10 byte).\n");
