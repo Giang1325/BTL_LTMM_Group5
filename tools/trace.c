@@ -22,12 +22,12 @@ int main() {
     printf("=== TRACE 5 VONG DAU TIEN ===\n");
     for (int i = 0; i < 5; i++) {
         // Đọc trực tiếp từ mảng (Do Giang thiết kế mỗi phần tử chứa 1 bit)
-        uint8_t s66  = ctx.s[66];
-        uint8_t s93  = ctx.s[93];
-        uint8_t s162 = ctx.s[162];
-        uint8_t s177 = ctx.s[177];
-        uint8_t s243 = ctx.s[243];
-        uint8_t s288 = ctx.s[288];
+        uint8_t s66  = ctx.s[65];
+        uint8_t s93  = ctx.s[92];
+        uint8_t s162 = ctx.s[161];
+        uint8_t s177 = ctx.s[176];
+        uint8_t s243 = ctx.s[242];
+        uint8_t s288 = ctx.s[287];
 
         uint8_t t1 = s66 ^ s93;
         uint8_t t2 = s162 ^ s177;

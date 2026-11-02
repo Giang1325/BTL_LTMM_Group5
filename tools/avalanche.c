@@ -26,7 +26,7 @@ void run_avalanche_test(int rounds) {
         }
     }
 
-    float percentage = (diff_count / KEYSTREAM_LEN) * 100.0f;
+    float percentage = ((float)diff_count / KEYSTREAM_LEN) * 100.0f;
     printf("| %-12d | %-22d | %-12.2f |\n", rounds, diff_count, percentage);
 }
 
