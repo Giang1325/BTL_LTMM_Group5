@@ -1,23 +1,3 @@
-/*
- * tests/test_vectors.c - Kiem dinh Trivium bang test vector eSTREAM
- *
- * Nguon vector: avr-crypto-lib, file testvectors/trivium-80.80.test-vectors
- * (chi tiet trong tests/vectors.txt).
- *
- * Quy uoc: Key/IV dua vao dang mang 10 byte, giu dung thu tu hex trong file
- * vector (byte dau tien viet truoc). Keystream 16 byte dau tien.
- *
- * LUU Y cho trivium_init (da kiem chung 4/4 vector PASS bang ban doi chieu):
- * bit thu i (i = 0..79, k_i trong dac ta) cua Key lay tu mang key[] la
- *     k_i = (key[9 - i/8] >> (7 - i%8)) & 1
- * tuc la byte CUOI cua chuoi hex ung voi cac bit DAU cua dac ta, va trong moi
- * byte thi bit cao (MSB) di truoc. IV nap giong het:
- *     v_i = (iv[9 - i/8] >> (7 - i%8)) & 1
- * Nap sai thu tu thi TV1 (toan 0) van PASS, nhung TV2, TV3, TV4 se FAIL.
- *
- * Chuong trinh tra ve 0 neu moi test PASS, khac 0 neu co FAIL
- * (de "make test" bao loi dung).
- */
 #include <stdio.h>
 #include <string.h>
 #include "trivium.h"

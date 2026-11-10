@@ -4,20 +4,18 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define TRIVIUM_KEY_BYTES   10      /* 80 bit */
-#define TRIVIUM_IV_BYTES    10      /* 80 bit */
+#define TRIVIUM_KEY_BYTES   10
+#define TRIVIUM_IV_BYTES    10
 #define TRIVIUM_STATE_BITS  288
-#define TRIVIUM_INIT_ROUNDS 1152    /* 4 * 288 vong khoi tao */
+#define TRIVIUM_INIT_ROUNDS 1152
 
 typedef struct {
     uint8_t s[TRIVIUM_STATE_BITS];
 } trivium_ctx;
 
-void trivium_init(trivium_ctx *ctx, const uint8_t key[TRIVIUM_KEY_BYTES],
-                  const uint8_t iv[TRIVIUM_IV_BYTES]);
+void trivium_init(trivium_ctx *ctx, const uint8_t key[TRIVIUM_KEY_BYTES], const uint8_t iv[TRIVIUM_IV_BYTES]);
 
-void trivium_init_rounds(trivium_ctx *ctx, const uint8_t key[TRIVIUM_KEY_BYTES],
-                         const uint8_t iv[TRIVIUM_IV_BYTES], int rounds);
+void trivium_init_rounds(trivium_ctx *ctx, const uint8_t key[TRIVIUM_KEY_BYTES], const uint8_t iv[TRIVIUM_IV_BYTES], int rounds);
 
 int trivium_step(trivium_ctx *ctx);
 
