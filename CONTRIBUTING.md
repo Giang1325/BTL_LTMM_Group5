@@ -9,11 +9,14 @@ Mọi thành viên đọc file này trước khi đẩy code lần đầu.
 - **Trình biên dịch:** GCC (MinGW-w64 trên Windows hoặc WSL/Ubuntu).
 - **Lệnh build:** trên Windows/MinGW gõ `mingw32-make`, trên WSL/Linux gõ `make`.
 
-| Lệnh         | Tác dụng                      |
-|--------------|-------------------------------|
-| `make`       | Build chương trình            |
-| `make test`  | Chạy toàn bộ kiểm thử         |
-| `make clean` | Xóa các file đã build         |
+| Lệnh             | Tác dụng                                         |
+|------------------|--------------------------------------------------|
+| `make`           | Build chương trình `trivium`                     |
+| `make test`      | Build và chạy kiểm thử test vector               |
+| `make ivreuse`   | Build và chạy demo tấn công dùng lại IV          |
+| `make trace`     | Build và chạy chương trình theo dõi trạng thái   |
+| `make avalanche` | Build và chạy kiểm tra hiệu ứng thác             |
+| `make clean`     | Xóa các file đã build                            |
 
 ## 2. Năm quy tắc bắt buộc
 
@@ -59,6 +62,7 @@ Dạng `<loai>/<mo-ta-ngan>`: chữ thường, không dấu, nối bằng gạch
 | `fix/`      | Sửa lỗi                   | `fix/lech-chi-so-t2`        |
 | `test/`     | Thêm hoặc sửa kiểm thử    | `test/test-vectors`         |
 | `docs/`     | Tài liệu, báo cáo         | `docs/tom-tat-trivium`      |
+| `build/`    | Makefile, cấu hình build  | `build/khung-trivium`       |
 
 ## 4. Commit message
 
@@ -82,20 +86,19 @@ Mỗi commit nên là một thay đổi có ý nghĩa; đừng gộp nhiều vi�
 
 Mỗi file có một người chịu trách nhiệm chính và một người review (cũng là người dự phòng khi chủ module vắng). Khi có xung đột (conflict) trong file của ai, người đó quyết định giữ phần nào.
 
-| File / thư mục                                               | Chủ sở hữu   | Người review |
-|--------------------------------------------------------------|--------------|--------------|
-| `Makefile`, `CONTRIBUTING.md`                                | Giang        | Ngọc Anh     |
-| `src/trivium.h`                                              | Giang, Bảo   | Hào          |
-| `src/trivium.c`                                              | Giang        | Bảo, Hào     |
-| `src/trivium64.c`                                            | Bảo          | Giang, Hào   |
-| `tools/bench.c`                                              | Bảo          | Ngọc Anh     |
-| `tests/vectors/`, `tests/*.c`                                | Hào          | Giang        |
-| `src/hex.h`, `src/hex.c`, `src/main.c`, `tools/avalanche.c`  | Ngọc Anh     | Bảo          |
-| `docs/`                                                      | Mỗi người viết mục của mình; Ngọc Anh ghép, Giang chốt cấu trúc | — |
+| File / thư mục                                    | Chủ sở hữu   | Người review |
+|---------------------------------------------------|--------------|--------------|
+| `Makefile`, `CONTRIBUTING.md`                     | Giang        | Ngọc Anh     |
+| `src/trivium.h`, `src/trivium.c`                  | Giang        | Hào          |
+| `src/hex.h`, `src/hex.c`, `src/main.c`            | Ngọc Anh     | Bảo          |
+| `tests/vectors.txt`, `tests/test_vectors.c`       | Hào          | Giang        |
+| `tools/iv_reuse.c`                                | Hào          | Giang        |
+| `tools/trace.c`, `tools/avalanche.c`              | Bảo          | Giang        |
+| `docs/`                                           | Mỗi người viết mục của mình; Ngọc Anh ghép, Giang chốt cấu trúc | — |
 
 ## 7. Viết code
 
 - Thụt dòng trong file C bằng 4 dấu cách. **Riêng Makefile bắt buộc dùng Tab.**
 - Tên hàm, biến viết thường nối gạch dưới (`trivium_init`), theo đúng interface đã chốt trong `src/trivium.h`.
-- Code lõi thuật toán có comment đối chiếu với từng dòng trong đặc tả Trivium.
+- Chỉ số mảng trong code bằng chỉ số đặc tả trừ 1 (ô sₖ là `s[k-1]`); khi sửa code lõi phải đối chiếu lại với đặc tả và chạy `make test`.
 - Không để lại cảnh báo khi build với `-Wall -Wextra`.
