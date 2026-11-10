@@ -1,5 +1,4 @@
 # Giải thích phần Kiểm định và Tấn công dùng lại IV
-*Người thực hiện: Phan Anh Hào — Nhóm 5, BTL Lý thuyết mật mã*
 *File: `tests/test_vectors.c`, `tools/iv_reuse.c`*
 
 ## 1. Phần này làm gì, nằm ở đâu trong hệ thống
@@ -8,8 +7,6 @@ Phần của em gồm hai chương trình độc lập, đều **chỉ gọi** c
 
 - `tests/test_vectors.c` — kiểm định tính đúng đắn: so keystream mà `trivium.c` sinh ra với 4 test vector chuẩn của eSTREAM, thêm một phép thử mã hóa rồi giải mã.
 - `tools/iv_reuse.c` — minh họa vì sao **không được dùng lại cặp (Key, IV)**: từ hai bản mã cùng keystream, kẻ tấn công khôi phục được bản rõ mà không cần khóa.
-
-Hai chương trình chỉ đọc kết quả của `trivium.c`, nên nếu Giang sửa thuật toán thì em chạy lại là biết ngay còn đúng hay không.
 
 ## 2. Cách chạy
 
@@ -76,6 +73,6 @@ Nghĩa là byte cuối của chuỗi hex ứng với các bit đầu của đặ
 
 ## 4. Code tham khảo lấy từ đâu, đã sửa gì
 
-- **Dữ liệu test vector** lấy từ thư viện mã nguồn mở *avr-crypto-lib*, file `testvectors/trivium-80.80.test-vectors` (link trong `tests/vectors.txt`), là bộ vector của eSTREAM: TV1 = Set 2 vector 0, TV2 = Set 1 vector 0, TV3 = Set 5 vector 0, TV4 = Set 6 vector 3. Em chỉ chép số liệu, không dùng mã nguồn của thư viện đó.
-- **Mã chương trình** `test_vectors.c` và `iv_reuse.c` do em viết theo interface `trivium.h` đã chốt, không sao chép từ nguồn nào. 
+- **Dữ liệu test vector** lấy từ thư viện mã nguồn mở *avr-crypto-lib*, file `testvectors/trivium-80.80.test-vectors` (link trong `tests/vectors.txt`), là bộ vector của eSTREAM: TV1 = Set 2 vector 0, TV2 = Set 1 vector 0, TV3 = Set 5 vector 0, TV4 = Set 6 vector 3. 
+- **Mã chương trình** `test_vectors.c` và `iv_reuse.c` được viết theo theo interface `trivium.h` 
 
