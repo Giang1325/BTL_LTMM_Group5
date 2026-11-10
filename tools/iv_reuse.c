@@ -1,11 +1,4 @@
-/*
- * tools/iv_reuse.c - Demo tan cong dung lai (Key, IV) cua ma dong (two-time pad)
- *
- * Buoc 1: ma hoa 2 cau P1, P2 bang CUNG Key va IV  -> C1, C2.
- * Buoc 2: ke tan cong chi thay C1, C2:  C1 ^ C2 == P1 ^ P2 (keystream bi triet tieu).
- * Buoc 3: biet them P1 (known-plaintext) -> P2 = (C1 ^ C2) ^ P1, KHONG can Key.
- * Doi chung: doi IV cho thong diep thu hai thi hai dang thuc tren khong con dung.
- */
+
 #include <stdio.h>
 #include <string.h>
 #include "trivium.h"

@@ -1,5 +1,4 @@
 # Giải thích phần Kiểm định và Tấn công dùng lại IV
-*Người thực hiện: Phan Anh Hào — Nhóm 5, BTL Lý thuyết mật mã*
 *File: `tests/test_vectors.c`, `tools/iv_reuse.c`*
 
 ## 1. Phần này làm gì, nằm ở đâu trong hệ thống
