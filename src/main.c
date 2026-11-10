@@ -18,7 +18,7 @@ static void print_usage(const char *prog) {
     fprintf(stderr, "  %s dec <khoa_hex_20_ky_tu> <file_vao> <file_ra>\n", prog);
 }
 
-/* Lenh 1: Sinh va in keystream ra man hinh */
+
 static int cmd_ks(const char *key_hex, const char *iv_hex, const char *len_str) {
     uint8_t key[KEY_SIZE];
     uint8_t iv[IV_SIZE];
@@ -55,12 +55,12 @@ static int cmd_ks(const char *key_hex, const char *iv_hex, const char *len_str) 
     return 0;
 }
 
-/* Lenh 2: Ma hoa file (tu sinh IV ngau nhien, ghi 10 byte IV dau file ra) */
+
 static int cmd_enc(const char *key_hex, const char *in_path, const char *out_path) {
     uint8_t key[KEY_SIZE];
     uint8_t iv[IV_SIZE];
 
-    /* Kiem tra file dau vao va dau ra co trung ten khong */
+
     if (strcmp(in_path, out_path) == 0) {
         fprintf(stderr, "Loi: File dau ra khong duoc trung ten voi file dau vao.\n");
         return 1;
@@ -84,16 +84,13 @@ static int cmd_enc(const char *key_hex, const char *in_path, const char *out_pat
         return 1;
     }
 
-    /*
-     * Luu y: Sinh IV bang rand() + time(NULL) chi du dung cho bai tap minh hoa,
-     * CHUA AN TOAN that trong thuc te mat ma (thuc te can dung CSPRNG cua HDH).
-     */
+   
     srand((unsigned int)time(NULL));
     for (int i = 0; i < IV_SIZE; i++) {
         iv[i] = (uint8_t)(rand() & 0xFF);
     }
 
-    /* Ghi 10 byte IV vao dau file dau ra */
+
     if (fwrite(iv, 1, IV_SIZE, fout) != IV_SIZE) {
         fprintf(stderr, "Loi: Khong the ghi IV vao file dau ra.\n");
         fclose(fin);
@@ -127,12 +124,12 @@ static int cmd_enc(const char *key_hex, const char *in_path, const char *out_pat
     return 0;
 }
 
-/* Lenh 3: Giai ma file (doc 10 byte IV dau file vao roi giai ma phan con lai) */
+
 static int cmd_dec(const char *key_hex, const char *in_path, const char *out_path) {
     uint8_t key[KEY_SIZE];
     uint8_t iv[IV_SIZE];
 
-    /* Kiem tra file dau vao va dau ra co trung ten khong */
+    
     if (strcmp(in_path, out_path) == 0) {
         fprintf(stderr, "Loi: File dau ra khong duoc trung ten voi file dau vao.\n");
         return 1;
@@ -149,7 +146,7 @@ static int cmd_dec(const char *key_hex, const char *in_path, const char *out_pat
         return 1;
     }
 
-    /* Doc 10 byte IV o dau file ma hoa */
+    
     if (fread(iv, 1, IV_SIZE, fin) != IV_SIZE) {
         fprintf(stderr, "Loi: File dau vao qua ngan, khong chua du 10 byte IV.\n");
         fclose(fin);
