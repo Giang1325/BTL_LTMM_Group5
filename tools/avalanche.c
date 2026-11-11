@@ -53,11 +53,11 @@ int main(void)
     printf("     TRIVIUM - AVALANCHE EFFECT TEST\n");
     printf("===============================================\n");
 
-    printf("Thay đổi 1 bit của Key, giữ nguyên IV.\n");
-    printf("Mỗi trường hợp so sánh %d bit keystream.\n\n",
+    printf("Thay doi 1 bit cua Key, giu nguyen IV.\n");
+    printf("Moi truong hop so sanh %d bit keystream.\n\n",
            KEYSTREAM_LEN);
 
-    printf("| Số vòng init | Số bit khác biệt (out) | Tỷ lệ       |\n");
+    printf("| So vong init | So bit khac biet (out) | Ty le       |\n");
     printf("|--------------|------------------------|-------------|\n");
 
     // Các mức số vòng khởi tạo cần kiểm tra
@@ -70,7 +70,7 @@ int main(void)
         run_avalanche_test(test_rounds[i]);
     }
 
-    printf("\nKết thúc kiểm tra Avalanche Effect.\n");
+    printf("\nKet thuc kiem tra Avalanche Effect.\n");
 
     return 0;
 }
