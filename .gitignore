@@ -1,0 +1,7 @@
+# File chay sinh ra khi bien dich
+*.exe
+*.o
+*.out
+
+# Cau hinh rieng cua VS Code
+.vscode/
