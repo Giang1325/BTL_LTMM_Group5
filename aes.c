@@ -80,7 +80,7 @@ int main(void) {
     uint8_t s[4][4];
     for(int r = 0; r < 4; r++) {
         for(int c = 0; c < 4; c++) {
-            s[r][c] = in[4 * r + c];
+            s[r][c] = in[r + 4 * c];
         }
     }
     print_state("Input state", s);
@@ -128,7 +128,7 @@ int main(void) {
         if(round == 0) {
             add_round_key(s, w, round);
             print_state("\nVong 0 (pre-round): ", s);
-            continue; 
+            continue;
         }
 
         sub_bytes(s);
@@ -147,8 +147,8 @@ int main(void) {
     }
 
     printf("\nCiphertext: ");
-    for(int r = 0; r < 4; r++) {
-        for(int c = 0; c < 4; c++) {
+    for(int c = 0; c < 4; c++) {
+        for(int r = 0; r < 4; r++) {
             printf("%02X", s[r][c]);
         }
     }
