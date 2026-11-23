@@ -123,7 +123,7 @@ static const uint8_t SHIFT[16] = {1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1
 uint64_t permute(uint64_t in, const uint8_t *table, int n_in, int n_out) {
     uint64_t out = 0;
     for(int i = 0; i < n_out; i++) {
-        uint64_t bit = (in >> (table[i] - 1)) & 1;
+        uint64_t bit = (in >> (n_in - table[i])) & 1;
         out = (out << 1) | bit;
     }
     return out;
