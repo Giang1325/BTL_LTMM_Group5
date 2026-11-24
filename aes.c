@@ -42,7 +42,7 @@ void shift_rows(uint8_t s[4][4]) {
     for(int r = 1; r < 4; r++) {
         uint8_t t[4];
         for(int c = 0; c < 4; c++) {
-            t[c] = s[r][(c - r + 4) % 4];
+            t[c] = s[r][(c + r) % 4];
         }
         for(int c = 0; c < 4; c++) {
             s[r][c] = t[c];
