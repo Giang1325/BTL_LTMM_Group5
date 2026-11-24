@@ -169,8 +169,13 @@ int main(void) {
     printf("Vong    Left      Right     Round Key\n");
     for(int i = 0; i < 16; i++) {
         uint32_t newR = L ^ des_f(R, K[i]);
-        L = R;
-        R = newR;
+        if(i < 15) {
+            L = R;
+            R = newR;
+        }
+        else {
+            L = newR;
+        }
         printf("%2d      %08X  %08X  %012llX\n", i + 1, L, R, (unsigned long long)K[i]);
     }
 
