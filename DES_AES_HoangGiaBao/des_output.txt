@@ -1,0 +1,154 @@
+﻿========================================================================
+KIEM THUAT TOAN DES
+========================================================================
+
+--- [GIAI DOAN 1] LAP LICH KHOA (KEY SCHEDULE) ---
+Khoa goc K (64-bit) : 0000000000000000
+Sau PC1 (56-bit)    : 00000000000000  =>  C0 = 0000000 | D0 = 0000000
+------------------------------------------------------------------------
+Vong | Dich |    C_i    |    D_i    |   Khoa vong k_i (48-bit Hex)
+------------------------------------------------------------------------
+  1  |  1   |  0000000  |  0000000  |  000000000000
+  2  |  1   |  0000000  |  0000000  |  000000000000
+  3  |  2   |  0000000  |  0000000  |  000000000000
+  4  |  2   |  0000000  |  0000000  |  000000000000
+  5  |  2   |  0000000  |  0000000  |  000000000000
+  6  |  2   |  0000000  |  0000000  |  000000000000
+  7  |  2   |  0000000  |  0000000  |  000000000000
+  8  |  2   |  0000000  |  0000000  |  000000000000
+  9  |  1   |  0000000  |  0000000  |  000000000000
+ 10  |  2   |  0000000  |  0000000  |  000000000000
+ 11  |  2   |  0000000  |  0000000  |  000000000000
+ 12  |  2   |  0000000  |  0000000  |  000000000000
+ 13  |  2   |  0000000  |  0000000  |  000000000000
+ 14  |  2   |  0000000  |  0000000  |  000000000000
+ 15  |  2   |  0000000  |  0000000  |  000000000000
+ 16  |  1   |  0000000  |  0000000  |  000000000000
+
+--- [GIAI DOAN 2] MA HOA KHOI DU LIEU (16 VONG FEISTEL) ---
+Ban ro M (64-bit)   : 0000000000000003
+Sau IP   (64-bit)   : 0000008000000080  =>  L0 = 00000080 | R0 = 00000080
+
+  [Vong  1] Khoa k_1 = 000000000000 | Dau vao: L_0 = 00000080, R_0 = 00000080
+    + EP(R)       (48-bit): 000000001400
+    + EP(R) ^ k_i (48-bit): 000000001400
+    + Sau S-box   (32-bit): EFA72A3D
+    + Sau P = f() (32-bit): DAE8DFB4
+    => Dau ra Vong  1: L_1 = 00000080 | R_1 = DAE8DF34
+
+  [Vong  2] Khoa k_2 = 000000000000 | Dau vao: L_1 = 00000080, R_1 = DAE8DF34
+    + EP(R)       (48-bit): 6F57516FE9A9
+    + EP(R) ^ k_i (48-bit): 6F57516FE9A9
+    + Sau S-box   (32-bit): 57F496D4
+    + Sau P = f() (32-bit): 6731D13F
+    => Dau ra Vong  2: L_2 = DAE8DF34 | R_2 = 6731D1BF
+
+  [Vong  3] Khoa k_3 = 000000000000 | Dau vao: L_2 = DAE8DF34, R_2 = 6731D1BF
+    + EP(R)       (48-bit): B0E9A3EA3DFE
+    + EP(R) ^ k_i (48-bit): B0E9A3EA3DFE
+    + Sau S-box   (32-bit): 249F33F8
+    + Sau P = f() (32-bit): AE7037D1
+    => Dau ra Vong  3: L_3 = 6731D1BF | R_3 = 7498E8E5
+
+  [Vong  4] Khoa k_4 = 000000000000 | Dau vao: L_3 = 6731D1BF, R_3 = 7498E8E5
+    + EP(R)       (48-bit): BA94F175170A
+    + EP(R) ^ k_i (48-bit): BA94F175170A
+    + Sau S-box   (32-bit): B389866F
+    + Sau P = f() (32-bit): C9B24F6A
+    => Dau ra Vong  4: L_4 = 7498E8E5 | R_4 = AE839ED5
+
+  [Vong  5] Khoa k_5 = 000000000000 | Dau vao: L_4 = 7498E8E5, R_4 = AE839ED5
+    + EP(R)       (48-bit): D5D407CFD6AB
+    + EP(R) ^ k_i (48-bit): D5D407CFD6AB
+    + Sau S-box   (32-bit): 3B15F8AA
+    + Sau P = f() (32-bit): FD0E5683
+    => Dau ra Vong  5: L_5 = AE839ED5 | R_5 = 8996BE66
+
+  [Vong  6] Khoa k_6 = 000000000000 | Dau vao: L_5 = AE839ED5, R_5 = 8996BE66
+    + EP(R)       (48-bit): 453CAD5FC30D
+    + EP(R) ^ k_i (48-bit): 453CAD5FC30D
+    + Sau S-box   (32-bit): A01DAB87
+    + Sau P = f() (32-bit): 95A23AE1
+    => Dau ra Vong  6: L_6 = 8996BE66 | R_6 = 3B21A434
+
+  [Vong  7] Khoa k_7 = 000000000000 | Dau vao: L_6 = 8996BE66, R_6 = 3B21A434
+    + EP(R)       (48-bit): 1F6903D081A8
+    + EP(R) ^ k_i (48-bit): 1F6903D081A8
+    + Sau S-box   (32-bit): 4648C9E9
+    + Sau P = f() (32-bit): 5915AC51
+    => Dau ra Vong  7: L_7 = 3B21A434 | R_7 = D0831237
+
+  [Vong  8] Khoa k_8 = 000000000000 | Dau vao: L_7 = 3B21A434, R_7 = D0831237
+    + EP(R)       (48-bit): EA14068A41AF
+    + EP(R) ^ k_i (48-bit): EA14068A41AF
+    + Sau S-box   (32-bit): AD132FED
+    + Sau P = f() (32-bit): 9CF86EB9
+    => Dau ra Vong  8: L_8 = D0831237 | R_8 = A7D9CA8D
+
+  [Vong  9] Khoa k_9 = 000000000000 | Dau vao: L_8 = D0831237, R_8 = A7D9CA8D
+    + EP(R)       (48-bit): D0FEF3E5545B
+    + EP(R) ^ k_i (48-bit): D0FEF3E5545B
+    + Sau S-box   (32-bit): 9E54ADEE
+    + Sau P = f() (32-bit): 5D9B34BB
+    => Dau ra Vong  9: L_9 = A7D9CA8D | R_9 = 8D18268C
+
+  [Vong 10] Khoa k_10 = 000000000000 | Dau vao: L_9 = A7D9CA8D, R_9 = 8D18268C
+    + EP(R)       (48-bit): 45A8F010D459
+    + EP(R) ^ k_i (48-bit): 45A8F010D459
+    + Sau S-box   (32-bit): A0AF49E0
+    + Sau P = f() (32-bit): 90D43745
+    => Dau ra Vong 10: L_10 = 8D18268C | R_10 = 370DFDC8
+
+  [Vong 11] Khoa k_11 = 000000000000 | Dau vao: L_10 = 8D18268C, R_10 = 370DFDC8
+    + EP(R)       (48-bit): 1AE85BFFBE50
+    + EP(R) ^ k_i (48-bit): 1AE85BFFBE50
+    + Sau S-box   (32-bit): 111A30EA
+    + Sau P = f() (32-bit): 2C5244C3
+    => Dau ra Vong 11: L_11 = 370DFDC8 | R_11 = A14A624F
+
+  [Vong 12] Khoa k_12 = 000000000000 | Dau vao: L_11 = 370DFDC8, R_11 = A14A624F
+    + EP(R)       (48-bit): D02A5430425F
+    + EP(R) ^ k_i (48-bit): D02A5430425F
+    + Sau S-box   (32-bit): 9168BA42
+    + Sau P = f() (32-bit): 31B340C6
+    => Dau ra Vong 12: L_12 = A14A624F | R_12 = 06BEBD0E
+
+  [Vong 13] Khoa k_13 = 000000000000 | Dau vao: L_12 = A14A624F, R_12 = 06BEBD0E
+    + EP(R)       (48-bit): 00D5FD5FA85C
+    + EP(R) ^ k_i (48-bit): 00D5FD5FA85C
+    + Sau S-box   (32-bit): E8E2AD6C
+    + Sau P = f() (32-bit): 19D9A7AC
+    => Dau ra Vong 13: L_13 = 06BEBD0E | R_13 = B893C5E3
+
+  [Vong 14] Khoa k_14 = 000000000000 | Dau vao: L_13 = 06BEBD0E, R_13 = B893C5E3
+    + EP(R)       (48-bit): DF14A7E0BF07
+    + EP(R) ^ k_i (48-bit): DF14A7E0BF07
+    + Sau S-box   (32-bit): EBD66C98
+    + Sau P = f() (32-bit): 5ECDD389
+    => Dau ra Vong 14: L_14 = B893C5E3 | R_14 = 58736E87
+
+  [Vong 15] Khoa k_15 = 000000000000 | Dau vao: L_14 = B893C5E3, R_14 = 58736E87
+    + EP(R)       (48-bit): AF03A6B5D40E
+    + EP(R) ^ k_i (48-bit): AF03A6B5D40E
+    + Sau S-box   (32-bit): 95502331
+    + Sau P = f() (32-bit): 06A16C92
+    => Dau ra Vong 15: L_15 = 58736E87 | R_15 = BE32A971
+
+  [Vong 16] Khoa k_16 = 000000000000 | Dau vao: L_15 = 58736E87, R_15 = BE32A971
+    + EP(R)       (48-bit): DFC1A5552BA3
+    + EP(R) ^ k_i (48-bit): DFC1A5552BA3
+    + Sau S-box   (32-bit): E2E0FDE1
+    + Sau P = f() (32-bit): 7195AF8D
+    => Dau ra Vong 16: L_16 = BE32A971 | R_16 = 29E6C10A
+
+--- [GIAI DOAN 3] KET THUC MA HOA ---
+Doi cho R16L16      : 29E6C10ABE32A971
+Sau IP^-1 (Ban ma C): 4EB190C9A2FA169C
+
+>>> TONG KET KIEM DINH <<<
+Ban ro dau vao      : 0000000000000003
+Khoa 64-bit         : 0000000000000000
+Ban ma tinh duoc    : 4EB190C9A2FA169C
+Ban giai ma         : 0000000000000003
+Kiem tra giai ma    : PASS - KHOP BAN RO GOC
+
