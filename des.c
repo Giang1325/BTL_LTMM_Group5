@@ -134,8 +134,8 @@ uint32_t des_f(uint32_t R, uint64_t K) {
     uint32_t s = 0;
     for(int i = 0; i < 8; i++) {
         int b = (x >> (48 - ((6 * i) + 6)) & 0x3F);
-        int row = (b >> 4) & 3;
-        int column = b & 0xF;
+        int row = ((b >> 4) & 2) | (b & 1);
+        int column = (b >> 1) & 0xF;
         s = (s << 4) | S[i][row][column];
     }
     return (uint32_t)permute(s, P, 32, 32);
