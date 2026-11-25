@@ -142,8 +142,8 @@ uint32_t des_f(uint32_t R, uint64_t K) {
 }
 
 int main(void) {
-    uint64_t plain = 0x123456ABCD132536ULL;
-    uint64_t key   = 0xAABB09182736CCDDULL;
+    uint64_t plain = 0x0000000000000011ULL;
+    uint64_t key   = 0x0000000000000000ULL;
 
     printf("Plaintext: %016llX\n", (unsigned long long)plain);
     printf("Key: %016llX\n\n", (unsigned long long)key);
